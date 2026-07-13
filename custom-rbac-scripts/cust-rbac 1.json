@@ -1,0 +1,53 @@
+﻿{
+  "Name": "Lab Participant",
+  "IsCustom": true,
+  "Description": "Custom least-privilege role - CloudLabs environment.",
+  "Actions": [
+    "Microsoft.Resources/subscriptions/read",
+    "Microsoft.Resources/subscriptions/locations/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/write",
+    "Microsoft.Resources/deployments/*",
+    "Microsoft.Resources/tags/*",
+    "Microsoft.Resources/resources/read",
+    "Microsoft.Authorization/*/read",
+    "Microsoft.Authorization/roleAssignments/write",
+    "Microsoft.Authorization/roleAssignments/delete",
+    "Microsoft.ManagedIdentity/userAssignedIdentities/read",
+    "Microsoft.ManagedIdentity/userAssignedIdentities/assign/action",
+    "Microsoft.Insights/*",
+    "Microsoft.OperationalInsights/*",
+    "Microsoft.AlertsManagement/*",
+    "Microsoft.Portal/dashboards/*",
+    "Microsoft.Support/*",
+    "Microsoft.ResourceHealth/availabilityStatuses/read",
+    "Microsoft.CognitiveServices/*",
+    "Microsoft.DocumentDb/*",
+    "Microsoft.EventGrid/*",
+    "Microsoft.Logic/*",
+    "Microsoft.Storage/*",
+    "Microsoft.Web/*"
+  ],
+  "NotActions": [
+    "Microsoft.Resources/subscriptions/resourceGroups/delete",
+    "Microsoft.Authorization/roleDefinitions/write",
+    "Microsoft.Authorization/roleDefinitions/delete",
+    "Microsoft.Authorization/policyDefinitions/write",
+    "Microsoft.Authorization/policyDefinitions/delete",
+    "Microsoft.Authorization/policySetDefinitions/write",
+    "Microsoft.Authorization/policySetDefinitions/delete",
+    "Microsoft.Authorization/policyAssignments/write",
+    "Microsoft.Authorization/policyAssignments/delete",
+    "Microsoft.Authorization/locks/write",
+    "Microsoft.Authorization/locks/delete"
+  ],
+  "DataActions": [
+    "Microsoft.CognitiveServices/accounts/*",
+    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
+    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action",
+    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
+    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action"
+  ],
+  "NotDataActions": []
+}
