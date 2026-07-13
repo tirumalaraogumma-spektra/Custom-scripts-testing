@@ -1,0 +1,131 @@
+﻿{
+  "if": {
+    "anyOf": [
+      {
+        "not": {
+          "anyOf": [
+            {
+              "field": "type",
+              "like": "Microsoft.CognitiveServices/accounts/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.CognitiveServices/accounts/projects/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Compute/disks/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Compute/virtualMachines/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.DocumentDb/databaseAccounts/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.EventGrid/topics/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Logic/workflows/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Network/networkInterfaces/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Network/networkSecurityGroups/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Network/publicIPAddresses/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Network/virtualNetworks/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Storage/storageAccounts/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Web/connections/*"
+            },
+            {
+              "field": "type",
+              "in": [
+                "Microsoft.CognitiveServices/accounts",
+                "Microsoft.CognitiveServices/accounts/projects",
+                "Microsoft.Compute/disks",
+                "Microsoft.Compute/virtualMachines",
+                "Microsoft.DocumentDb/databaseAccounts",
+                "Microsoft.EventGrid/topics",
+                "Microsoft.Logic/workflows",
+                "Microsoft.Network/networkInterfaces",
+                "Microsoft.Network/networkSecurityGroups",
+                "Microsoft.Network/publicIPAddresses",
+                "Microsoft.Network/virtualNetworks",
+                "Microsoft.Storage/storageAccounts",
+                "Microsoft.Web/connections"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "allOf": [
+          {
+            "source": "action",
+            "equals": "Microsoft.Storage/storageAccounts/write"
+          },
+          {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+          },
+          {
+            "not": {
+              "field": "Microsoft.Storage/storageAccounts/sku.name",
+              "in": ["Standard_LRS"]
+            }
+          }
+        ]
+      },
+      {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Compute/disks"
+          },
+          {
+            "not": {
+              "field": "Microsoft.Compute/disks/sku.name",
+              "in": ["Premium_LRS"]
+            }
+          }
+        ]
+      },
+      {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.CognitiveServices/accounts"
+          },
+          {
+            "not": {
+              "field": "Microsoft.CognitiveServices/accounts/sku.name",
+              "in": ["S0"]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
