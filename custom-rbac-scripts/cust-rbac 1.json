@@ -27,6 +27,8 @@
     "Microsoft.Logic/*",
     "Microsoft.Storage/*",
     "Microsoft.Web/*"
+    "Microsoft.EventGrid/topics/publish/action",
+    "Microsoft.EventGrid/eventSubscriptions/write",
   ],
   "NotActions": [
     "Microsoft.Resources/subscriptions/resourceGroups/delete",
@@ -48,8 +50,7 @@
     "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action",
     "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
     "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action"
-    "Microsoft.EventGrid/topics/publish/action"
-    "Microsoft.EventGrid/eventSubscriptions/write"
+   
 
   ],
   "NotDataActions": []
