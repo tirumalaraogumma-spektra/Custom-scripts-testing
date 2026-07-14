@@ -38,6 +38,14 @@
             },
             {
               "field": "type",
+              "equals": "Microsoft.Web/connections"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Web/connections/*"
+            },
+            {
+              "field": "type",
               "equals": "Microsoft.Logic/workflows"
             },
             {
