@@ -68,6 +68,18 @@
               "field": "type",
               "like": "Microsoft.EventGrid/topics/*"
             }
+             {
+              "field": "type",
+              "in": [
+                "Microsoft.CognitiveServices/accounts",
+                "Microsoft.CognitiveServices/accounts/projects",
+                "Microsoft.DocumentDb/databaseAccounts",
+                "Microsoft.EventGrid/topics",
+                "Microsoft.Logic/workflows",
+                "Microsoft.Storage/storageAccounts",
+                "Microsoft.Web/connections"
+              ]
+            }
           ]
         }
       },
