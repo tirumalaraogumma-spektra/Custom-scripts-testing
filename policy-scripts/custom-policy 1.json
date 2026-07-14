@@ -1,121 +1,124 @@
 {
-  "if": {
-    "anyOf": [
-      {
-        "not": {
-          "anyOf": [
-            {
-              "field": "type",
-              "equals": "Microsoft.CognitiveServices/accounts"
-            },
-            {
-              "field": "type",
-              "equals": "Microsoft.CognitiveServices/accounts/projects"
-            },
-            {
-              "field": "type",
-              "like": "Microsoft.CognitiveServices/accounts/projects/*"
-            },
-            {
-              "field": "type",
-              "like": "Microsoft.CognitiveServices/accounts/*"
-            },
-            {
-              "field": "type",
-              "equals": "Microsoft.DocumentDB/databaseAccounts"
-            },
-            {
-              "field": "type",
-              "like": "Microsoft.DocumentDB/databaseAccounts/*"
-            },
+    "if": {
+      "anyOf": [
+        {
+          "not": {
+            "anyOf": [
+              {
+                "field": "type",
+                "equals": "Microsoft.CognitiveServices/accounts"
+              },
+              {
+                "field": "type",
+                "like": "Microsoft.CognitiveServices/accounts/*"
+              },
+              {
+                "field": "type",
+                "equals": "Microsoft.CognitiveServices/accounts/projects"
+              },
+              {
+                "field": "type",
+                "like": "Microsoft.CognitiveServices/accounts/projects/*"
+              },
+
+              {
+                "field": "type",
+                "equals": "Microsoft.DocumentDB/databaseAccounts"
+              },
+              {
+                "field": "type",
+                "like": "Microsoft.DocumentDB/databaseAccounts/*"
+              },
+
+              {
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
+              },
+              {
+                "field": "type",
+                "like": "Microsoft.Storage/storageAccounts/*"
+              },
+
+              {
+                "field": "type",
+                "equals": "Microsoft.Logic/workflows"
+              },
+              {
+                "field": "type",
+                "like": "Microsoft.Logic/workflows/*"
+              },
+
+              {
+                "field": "type",
+                "equals": "Microsoft.EventGrid/topics"
+              },
+              {
+                "field": "type",
+                "like": "Microsoft.EventGrid/topics/*"
+              },
+
+              {
+                "field": "type",
+                "equals": "Microsoft.Web/connections"
+              },
+              {
+                "field": "type",
+                "like": "Microsoft.Web/connections/*"
+              },
+
+              {
+                "field": "type",
+                "equals": "Microsoft.Web/customApis"
+              },
+              {
+                "field": "type",
+                "like": "Microsoft.Web/customApis/*"
+              },
+
+              {
+                "field": "type",
+                "equals": "Microsoft.Web/locations"
+              },
+              {
+                "field": "type",
+                "like": "Microsoft.Web/locations/*"
+              }
+            ]
+          }
+        },
+
+        {
+          "allOf": [
             {
               "field": "type",
               "equals": "Microsoft.Storage/storageAccounts"
             },
             {
-              "field": "type",
-              "like": "Microsoft.Storage/storageAccounts/*"
-            },
-            {
-              "field": "type",
-              "equals": "Microsoft.Web/connections"
-            },
-            {
-              "field": "type",
-              "like": "Microsoft.Web/connections/*"
-            },
-            {
-              "field": "type",
-              "equals": "Microsoft.Web/customApis"
-            },
-            {
-              "field": "type",
-              "like": "Microsoft.Web/customApis/*"
-            },
-            {
-              "field": "type",
-              "equals": "Microsoft.Logic/workflows"
-            },
-            {
-              "field": "type",
-              "like": "Microsoft.Logic/workflows/*"
-            },
-            {
-              "field": "type",
-              "equals": "Microsoft.EventGrid/topics"
-            },
-            {
-              "field": "type",
-              "like": "Microsoft.EventGrid/topics/*"
+              "not": {
+                "field": "Microsoft.Storage/storageAccounts/sku.name",
+                "equals": "Standard_LRS"
+              }
             }
-             {
+          ]
+        },
+
+        {
+          "allOf": [
+            {
               "field": "type",
-              "in": [
-                "Microsoft.CognitiveServices/accounts",
-                "Microsoft.CognitiveServices/accounts/projects",
-                "Microsoft.DocumentDb/databaseAccounts",
-                "Microsoft.EventGrid/topics",
-                "Microsoft.Logic/workflows",
-                "Microsoft.Storage/storageAccounts",
-                "Microsoft.Web/connections"
-              ]
+              "equals": "Microsoft.CognitiveServices/accounts"
+            },
+            {
+              "not": {
+                "field": "Microsoft.CognitiveServices/accounts/sku.name",
+                "equals": "S0"
+              }
             }
           ]
         }
-      },
-
-      {
-        "allOf": [
-          {
-            "field": "type",
-            "equals": "Microsoft.Storage/storageAccounts"
-          },
-          {
-            "not": {
-              "field": "Microsoft.Storage/storageAccounts/sku.name",
-              "equals": "Standard_LRS"
-            }
-          }
-        ]
-      },
-
-      {
-        "allOf": [
-          {
-            "field": "type",
-            "equals": "Microsoft.CognitiveServices/accounts"
-          },
-          {
-            "not": {
-              "field": "Microsoft.CognitiveServices/accounts/sku.name",
-              "equals": "S0"
-            }
-          }
-        ]
-      }
-    ]
-  },
-  "then": {
-    "effect": "deny"
-  }
+      ]
+    },
+    "then": {
+      "effect": "deny"
+    }
 }
