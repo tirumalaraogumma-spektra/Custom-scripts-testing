@@ -45,7 +45,7 @@
       "value": "2025-08-07"
     },
     "chatModelCapacity": {
-      "value": 10
+      "value": 50
     },
     "embeddingModelName": {
       "value": "text-embedding-3-small"
