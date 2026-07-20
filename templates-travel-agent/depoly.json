@@ -80,7 +80,7 @@
     }
   },
   "variables": {
-    "scripturl": "https://experienceazure.blob.core.windows.net/templates/hiad/challenge-image-py11/scripts/psscript.ps1",
+    "scripturl": "https://raw.githubusercontent.com/tirumalaraogumma-spektra/Custom-scripts-testing/refs/heads/main/templates-travel-agent/psscript-travel.ps1",
     "userdata": "[concat('$url = \"', variables('scripturl'),'\"; $arg = \"', variables('arg'), '\"')]",
     "arg": "[concat(variables('arg1'),variables('arg2'),variables('arg3'),variables('arg4'),variables('arg5'))]",
     "arg1": "[concat(' -AzureUserName ', parameters('AzureUserName'), ' -AzurePassword ', parameters('AzurePassword'))]",
